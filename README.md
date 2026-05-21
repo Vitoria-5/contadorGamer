@@ -42,7 +42,7 @@ npm install
 
 ## 4. Rodar o projeto
 ```
-npm install
+npm start
 ```
 
 ---
