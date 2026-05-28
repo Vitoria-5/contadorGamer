@@ -10,6 +10,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 // importar as telas
 import Jogador1 from './components/Jogador1'
 import Jogador2 from './components/Jogador2';
+import Jogador2atv from './components/Jogador2atv';
 import Jogador3 from './components/Jogador3';
 import Jogador4 from './components/Jogador4';
 

@@ -11,13 +11,13 @@ import {
 } from "react-native-web";
 
 // Componente principal APP 
-export default function Jogador1() {
+export default function Jogador2atv() {
   // Cria um estado (variável PHP) chamada "pontos"
   // pontos = valor atual
   // setPontos = função para alterar valor
   // 0 = valor inicial
   const [pontos, setPontos] = useState(0);
-  // Função para aumentar 1 ponto
+  // Função para aulmentar 1 ponto
   function aumentar() {
     // pega o valor atual e soma +1
     setPontos(pontos + 1);
@@ -26,6 +26,8 @@ export default function Jogador1() {
   function diminuir() {
     // pega o valor atual e subtrai -1
     setPontos(pontos - 1);
+    if(pontos<1)
+      return setPontos(0);
   }
   // Função para resetar o contador
   function resetar() {
@@ -40,6 +42,25 @@ export default function Jogador1() {
       <Text style={styles.titulo}>
         🎮 Contador Gamer
       </Text>
+
+      <View style={styles.card1}>
+      <Text style={styles.nome}>
+        💻Jogador 1
+      </Text>
+      {/* Mostra o valor dos pontos */}
+      <Text style={styles.pontos}>{pontos}</Text>
+      {/* área dos botões +1 e -1 */}
+      <View style={styles.areaBotoes}>
+        <TouchableOpacity onPress={aumentar} style={styles.botao}> <Text style={styles.textoBotao}>+1</Text></TouchableOpacity>
+        <TouchableOpacity onPress={diminuir} style={styles.botao}><Text style={styles.textoBotao}>-1</Text> </TouchableOpacity>
+      </View>
+      <TouchableOpacity onPress={resetar} style={styles.botaoReset}><Text style={styles.textoBotao}>Resetar</Text></TouchableOpacity>
+      </View>
+
+      <View style={styles.card2}>
+      <Text style={styles.nome}>
+        💻Jogador 2
+      </Text>
       {/* Mostra o valor dos pontos */}
       <Text style={styles.pontos}>{pontos}</Text>
       {/* área dos botões +1 e -1 */}
@@ -49,6 +70,8 @@ export default function Jogador1() {
       </View>
       <TouchableOpacity onPress={resetar} style={styles.botaoReset}><Text style={styles.textoBotao}>Resetar</Text></TouchableOpacity>
     </View>
+    </View>
+
   );
 }
 //ÁREA DE ESTILOS DO APP
@@ -58,7 +81,7 @@ const styles = StyleSheet.create({
     // OCUPA A TELA TODA
     flex: 1,
     // COR DE FUNDO
-    backgroundColor: '#121212',
+    backgroundColor: '#c33b7fff',
     //CENTRALIZA HORIZONTALMENTE
     alignItems: 'center',
     // CENTRALIZA VERTICALMENTE
@@ -71,7 +94,7 @@ const styles = StyleSheet.create({
     // TAMANHO DA FONTE
     fontSize: 32,
     // COR DO TEXTO
-    color: '#00ff88',
+    color: '#6e0a46ff',
     // TEXTO EM NEGRITO
     fontWeight: 'bold',
     // ESPAÇO ABAIXO
@@ -82,7 +105,7 @@ const styles = StyleSheet.create({
     // TAMANHO GRANDE
     fontSize: 80,
     // COR BRANCA
-    color: '#ffffff',
+    color: '#ff9adcff',
     // ESPAÇO ABAIXO
     marginBottom: 40,
     // NEGRITO
@@ -98,10 +121,10 @@ const styles = StyleSheet.create({
   // ESTILO DOS BOTÕES +1 E -1
   botao: {
     // COR DO BOTÃO 
-    backgroundColor: '#00ff88',
+    backgroundColor: '#1d8520ff',
     // ESPAÇAMENTO VERTICAL
     paddingVertical: 15,
-     // ESPAÇAMENTO HORIZONTAL
+    // ESPAÇAMENTO HORIZONTAL
     paddingHorizontal: 30,
     // ARREDONDA AS BORDAS
     borderRadius: 12,
@@ -111,7 +134,7 @@ const styles = StyleSheet.create({
   // ESTILO DO BOTÃO RESETAR
   botaoReset: {
     // COR VERMELHA
-    backgroundColor: '#ff3b30',
+    backgroundColor: '#ac1616ff',
     // ESPAÇAMENTOS
     paddingVertical: 15,
     paddingHorizontal: 40,
@@ -126,6 +149,28 @@ const styles = StyleSheet.create({
     color: '#000',
     // NEGRITO
     fontWeight: 'bold',
+  },
+  nome: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#3d0527ff',
+  },
+
+  card1: {
+    flexDirection: 'row',
+    flex: 'wrap',
+    justifyContent: 'center',
+    height: 180,
+    alignItems: 'center',
+  },
+
+
+  card2: {
+    flexDirection: 'row',
+    flex: 'wrap',
+    justifyContent: 'center',
+    height: 180,
+    alignItems: 'center',
   },
 
 
